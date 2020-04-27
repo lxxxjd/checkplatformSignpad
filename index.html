@@ -26,15 +26,6 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-    function resizeCanvas() {
-      var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-      canvas.width = canvas.offsetWidth * ratio;
-      canvas.height = canvas.offsetHeight * ratio;
-      canvas.getContext("2d").scale(ratio, ratio);
-      signaturePad.clear(); // otherwise isEmpty() might return incorrect value
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
   </script>
 </head>
 <body onselectstart="return false">

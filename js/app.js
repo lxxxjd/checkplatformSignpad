@@ -108,7 +108,7 @@ function getQueryString(name) {
 
 savePNGButton.addEventListener("click", function (event) {
   if (signaturePad.isEmpty()) {
-    alert("Please provide a signature first.");
+    alert("未签名，请签后保存！");
   } else {
     var dataURL = signaturePad.toDataURL();
     // download(dataURL, "signature.png");
@@ -126,11 +126,16 @@ savePNGButton.addEventListener("click", function (event) {
         //请求的媒体类型
         contentType: "application/json;charset=UTF-8",
         //请求地址
-        url : "https://localhost:81/api/signpad/usersign",
+        url : "https://www.smlq.vip/api/signpad/usersign",
         //数据，json字符串
         data : JSON.stringify(list),
         //请求成功
         success : function(result) {
+            if(result.code ===200){
+                alert("签名保存成功");
+            }else{
+                alert("用户名或签名错误！");
+            }
           console.log(result);
         },
         //请求失败，包含具体的错误信息
